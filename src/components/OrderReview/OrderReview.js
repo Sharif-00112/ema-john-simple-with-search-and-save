@@ -3,7 +3,8 @@ import useProducts from '../../hooks/useProducts';
 import useCart from '../../hooks/useCart';
 import Cart from '../Cart/Cart'
 import ReviewItem from '../ReviewItem/ReviewItem';
-import { deleteFromDb } from '../../utilities/fakedb';
+import { clearTheCart, deleteFromDb } from '../../utilities/fakedb';
+import { useNavigate } from 'react-router-dom';
 
 const OrderReview = () => {
     const [products] = useProducts();
@@ -14,6 +15,13 @@ const OrderReview = () => {
         const newCart = cart.filter(product => product.key !== key);
         setCart(newCart);
         deleteFromDb(key);
+    }
+
+    const navigation = useNavigate();
+    const handlePlaceOrder = () =>{
+        navigation('/placeorder');
+        setCart([]);
+        clearTheCart();
     }
 
     return (
@@ -28,7 +36,9 @@ const OrderReview = () => {
                 }
             </div>
             <div className="cart-container">
-                <Cart cart={cart}></Cart>
+                <Cart cart={cart}>
+                    <button onClick={handlePlaceOrder} className='btn-regular'>Place Order</button>
+                </Cart>
             </div>
         </div>
     );
