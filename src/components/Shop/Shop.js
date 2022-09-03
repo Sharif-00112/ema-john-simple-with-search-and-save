@@ -36,10 +36,29 @@ const Shop = () => {
         }
     }, [products])
 
+    //quantity problem solved
     const handleAddToCart = (product) => {
-        const newCart = [...cart, product];
+        //check if the product already exists in the cart
+        const exists = cart.find(pd => pd.key === product.key);
+
+        // create a newCart empty array
+        let newCart = [];
+
+        // if the same product already exists, it has the 'quantity' attribute. In this situation, firstly, add the remaining (unmatched) items in the cart. then increase the existing product quantity by 1 and finally add that product to new cart.
+        if(exists){
+            const rest = cart.filter(pd => pd.key !== product.key);
+            exists.quantity = exists.quantity + 1;
+            newCart = [...rest, product];
+        }
+
+        // if the same product already not exists, add a quantity attribute with value = 1 and set it to the array. 
+        else{
+            product.quantity = 1;
+            newCart = [...cart, product];
+        }
+        // update cart
         setCart(newCart);
-        // save to local storage (for now)
+        // save to local storage (as we do not have database yet)
         addToDb(product.key);
     }
 
