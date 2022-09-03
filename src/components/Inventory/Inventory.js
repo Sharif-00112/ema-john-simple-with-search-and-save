@@ -3,7 +3,8 @@ import React from 'react';
 const Inventory = () => {
     return (
         <div>
-            <h2>Inventory Page</h2>
+            <h3 className='pt-5 text-center'>Inventory</h3> 
+            <hr className='w-25 mx-auto'/>
         </div>
     );
 };

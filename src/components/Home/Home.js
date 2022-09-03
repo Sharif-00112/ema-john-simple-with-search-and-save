@@ -1,13 +1,12 @@
 import React from 'react';
 
-const Contact = () => {
+const Home = () => {
     return (
         <div>
-            <h3 className='pt-5 text-center'>Contact us</h3> 
+            <h3 className='pt-5 text-center'>Homepage</h3> 
             <hr className='w-25 mx-auto'/>
-
         </div>
     );
 };
 
-export default Contact;
+export default Home;

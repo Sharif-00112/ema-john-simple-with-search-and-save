@@ -72,11 +72,11 @@ const Shop = () => {
 
     return (
         <>
-            <div className="search-container">
+            <div className="search-container p-2">
                 <input
                     type="text"
                     onChange={handleSearch}
-                    placeholder="Search Product" />
+                    placeholder="  Search Product" />
             </div>
             <div className="shop-container">
                 <div className="product-container">

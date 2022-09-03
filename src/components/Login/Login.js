@@ -6,9 +6,9 @@ const Login = () => {
     //destructuring hooks
     const {signInUsingGoogle, signInUsingGithub, signInUsingFacebook, signInUsingTwitter, user, error, handleLoginSubmitBtn, handleEmailChange, handlePasswordChange } = useAuth();
     
-    return (
-        <div>
-            { !user.email ? <h3 className='pt-5'>User Login</h3> 
+    return ( 
+        <div className='w-75 mx-auto'>
+            { !user.email ? <h3 className='pt-5 text-center'>User Login</h3> 
             :
             <div className="">
                 <h3 className='pt-5'>Welcome, <span className='text-success'>{user.displayName}</span></h3>
@@ -35,9 +35,9 @@ const Login = () => {
                             <br />
                             <p className='text-danger'>{error}</p>
                         </div>
-                        <button type="submit" className="btn btn-secondary">Login</button>
+                        <button type="submit" className="btn btn-secondary mx-auto">Login</button>
                     </form>
-                    <button className='btn btn-secondary p-2 mt-3'><Link className='text-decoration-none text-white' to="/forgotpassword"><u>Forgot Password?</u></Link></button>
+                    <button className='btn btn-secondary p-2 mt-3 mx-auto'><Link className='text-decoration-none text-white' to="/forgotpassword"><u>Forgot Password?</u></Link></button>
 
                     
                     <p className='m-4'>Or</p>
